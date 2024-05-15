@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deep Fake Image Detector</title>
+    <link rel="stylesheet" href="../static/style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
+    />
+    <link rel="icon" href="/static/favicon.ico" type="image/png" />
+    <script src="https://unpkg.com/petite-vue" defer init></script>
+  </head>
+  <body class="body">
+    <div class="loader-wrapper hidden">
+      <div id="loader"></div>
+    </div>
+
+    <div class="header">Deep Fake Image Detector</div>
+    <div class="container">
+      <h1>Introduction</h1>
+      <p>
+        Welcome to Deep Fake Image Detector. We are dedicated to providing
+        accurate deep fake image detection services. Our team of experts is
+        committed to safeguarding against the misuse of manipulated media.
+      </p>
+      <p>
+        At Deep Fake Image Detector, we utilize cutting-edge AI technology to
+        detect and identify fake images, ensuring the integrity of visual
+        content in various contexts such as social media, journalism, and
+        entertainment.
+      </p>
+      <p>
+        Our mission is to empower individuals and organizations with the tools
+        and knowledge to combat the spread of misinformation and protect the
+        authenticity of digital imagery.
+      </p>
+    </div>
+
+    <div class="container">
+      <h1>Get Started</h1>
+      <br />
+      <div id="imagePreview" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <p style="font-size: 18px; color: #555">
+          Drag and drop image here or click to upload
+        </p>
+      </div>
+      <div class="btn-group">
+        <!-- Updated button to trigger file input -->
+        <button class="upload-btn" onclick="selectImage()">Upload Image</button>
+        <!-- Updated button to trigger camera -->
+        <button
+          class="upload-btn"
+          style="background-color: #28a745"
+          onclick="showSnackbar()"
+        >
+          Take Picture
+        </button>
+        <div id="snackbar">Coming soon !</div>
+      </div>
+
+      <!-- Hidden file input element -->
+      <input
+        type="file"
+        id="fileInput"
+        accept="image/*"
+        style="display: none"
+        onchange="previewImage(event)"
+      />
+    </div>
+
+    <div class="center-button">
+      <button id="submitButton" class="submitButton" onclick="onSubmit()">
+        Scan for Deep Fake
+      </button>
+    </div>
+
+    <footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
+      <p class="w3-medium">
+        Powered by
+        <span>Tony DUONG and Ndaya MBUJAMBA</span>
+      </p>
+    </footer>
+
+    <div id="responseModal" class="modal">
+      <span class="close">&times;</span>
+      <div class="modal-content">
+        <h1>Results</h1>
+        <br />
+        <h1 id="responseMessage" class="response-string">
+          Response message here
+        </h1>
+        <p id="TextMessage" class="text-message">Text Message Place Holder</p>
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../static/script.js"></script>
+  </body>
+</html>

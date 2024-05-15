@@ -1,0 +1,288 @@
+.body {
+  font-family: "Roboto", sans-serif;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(211, 215, 219) 0%,
+    rgb(34, 34, 34) 90%
+  );
+  margin: 0;
+  padding: 0;
+}
+div.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.heading {
+  font-size: 36px;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+.upload-btn {
+  background-color: #007bff;
+  max-width: 200px;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 40px;
+}
+.upload-btn:hover {
+  background-color: #0056b3;
+}
+#fileInput {
+  display: none;
+}
+#imagePreview {
+  width: 300px;
+  height: 300px;
+  border: 2px dashed #007bff;
+  padding: 5px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  text-align: center;
+}
+#imagePreview img,
+#imagePreview video {
+  max-width: 100%;
+  max-height: 400px;
+  margin: 0 auto;
+  display: block;
+}
+.btn-group {
+  display: flex;
+}
+.btn-group .upload-btn {
+  margin-right: 10px;
+}
+.submitButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 5px;
+  width: 500px;
+  position: relative;
+}
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #007bff;
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+/* Modal styles */
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal content styles */
+.modal-content {
+  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+  margin: 15% auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  max-height: 500px;
+  text-align: center;
+}
+
+/* Close button styles */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+/* Response string styles */
+.response-string {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Progress bar styles */
+.progress-container {
+  width: 100%;
+  height: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.progressAnimation {
+  width: 0%;
+  height: 15px;
+  background-color: #4caf50;
+  margin-top: 5px;
+
+  transition: width 1.5s ease;
+}
+.center-button {
+  text-align: center;
+  margin-top: 10px; /* Adjust the margin as needed */
+  margin-bottom: 50px;
+}
+.header {
+  background-color: #333; /* Dark background color */
+  color: white; /* White text color */
+  padding: 20px; /* Padding */
+  text-align: center; /* Centered text */
+  font-size: 24px; /* Larger font size */
+  font-family: "Lato", sans-serif; /* Font family */
+  position: relative; /* Position relative for absolute positioning of links */
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+.about-us,
+.contact-us {
+  position: absolute; /* Position absolute for positioning within the header */
+  top: 20px; /* Top position */
+  right: 20px; /* Right position */
+  color: #fff; /* White text color */
+  text-decoration: none; /* Remove underline */
+}
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+.loader-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.479);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+}
+
+#loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
