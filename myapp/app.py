@@ -19,10 +19,11 @@ def predict_deepfake_from_file(images):
     else:
         return 'Prediction error', None, 400  # Return None if no predictions were made
   
-app = Flask(__name__)
- 
+app = Flask(__name__,template_folder='templates')
+app.logger('some debug after flask app') 
 @app.route('/')
 def index():
+    app.logger(app.template_folder)
     return render_template('index.html')
 
 @app.route('/upload', methods=['POST'])
